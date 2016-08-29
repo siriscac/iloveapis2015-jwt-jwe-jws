@@ -12,7 +12,9 @@ var opts = {
     organization: gutil.env.org,
     token: gutil.env.token,
     environments: gutil.env.env,    
-    environment: gutil.env.env    
+    environment: gutil.env.env,
+    debug: gutil.env.debug,
+    verbose: gutil.env.verbose    
 }
 
 gulp.task('deploy',function(){
@@ -24,7 +26,8 @@ gulp.task('deploy',function(){
 			.then(function(){
 				return sdk.deployProxy(opts)
 			},function(err){
-				console.log(err)
+				console.log("cache creation failed, might already exist, try to deploy")
+				return sdk.deployProxy(opts)
 			})
 
 })
