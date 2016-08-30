@@ -1,8 +1,20 @@
 var assert = require('assert');
 var request = require('request');
 
-var create_url = 'https://amer-demo1-test.apigee.net/jwt_signed/create-hs256'
-var verify_url = 'https://amer-demo1-test.apigee.net/jwt_signed/validate-hs256'
+var pathname = window.location.pathname
+var splits = pathname.split('/')
+//expected /v1/o/:orgname/e/:env/samples/:sample/test.html
+var org = splits[3]
+var env = splits[5]
+var sample = splits[7]
+
+getTestData(org,env,sample,function(data){
+  //i don have any data for this proxy
+})
+
+var create_url = 'http://' + org + '-' + env + '.apigee.net/jwt_signed/create-hs256'
+var verify_url = 'http://' + org + '-' + env + '.apigee.net/jwt_signed/validate-hs256'
+
 describe('Running tests for JWT', function() {
   var jwt=''
     it('get a jwt token', function(done) {
@@ -19,7 +31,6 @@ describe('Running tests for JWT', function() {
       	   assert.equal(response.statusCode,200)
            assert(body)
            done()
-
       })
     })
 
@@ -36,7 +47,6 @@ describe('Running tests for JWT', function() {
            assert.equal(response.statusCode,200)
            assert(body)
            done()
-
       })
     })
 })
