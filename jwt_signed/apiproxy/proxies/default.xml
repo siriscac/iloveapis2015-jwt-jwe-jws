@@ -15,9 +15,18 @@
   </FaultRules>
 
   <PreFlow name="PreFlow">
-    <Request>
-    </Request>
-  </PreFlow>
+        <Request>
+            <Step>
+                <Condition>request.verb='OPTIONS'</Condition>
+                <Name>CORS</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>SetCORS</Name>
+            </Step>
+        </Response>
+    </PreFlow>
 
   <PostFlow name="PostFlow"/>
   <Flows>
