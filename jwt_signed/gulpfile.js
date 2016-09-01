@@ -29,5 +29,14 @@ gulp.task('deploy',function(){
 				console.log("cache creation failed, might already exist, try to deploy")
 				return sdk.deployProxy(opts)
 			})
+})
 
+gulp.task('clean',function(){
+	opts.api = PROXY_NAME
+	opts.cache = CACHE_RESOURCE_NAME
+	var sdk = apigeetool.getPromiseSDK()
+	return sdk.undeploy(opts)
+			   .then(function(){ return sdk.delete(opts)})
+			   .then(function(){ return sdk.deletecache(opts)})
+						
 })
