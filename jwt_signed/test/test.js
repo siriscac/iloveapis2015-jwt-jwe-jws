@@ -14,6 +14,7 @@ var create_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/create-h
 var verify_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/validate-hs256'
 
 describe('Running tests for JWT', function() {
+  console.log(splits);
   var jwt=''
     it('get a jwt token', function(done) {
 
