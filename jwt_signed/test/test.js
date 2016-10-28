@@ -5,6 +5,7 @@ var splits = pathname.split('/')
 var org = splits[3]
 var env = splits[5]
 var sample = splits[7]
+console.log("test: " + org);
   console.log(splits);
 
 getTestData(org,env,sample,function(data){
