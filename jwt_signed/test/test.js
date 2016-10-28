@@ -5,6 +5,7 @@ var splits = pathname.split('/')
 var org = splits[3]
 var env = splits[5]
 var sample = splits[7]
+  console.log(splits);
 
 getTestData(org,env,sample,function(data){
   //i don have any data for this proxy
@@ -14,7 +15,6 @@ var create_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/create-h
 var verify_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/validate-hs256'
 
 describe('Running tests for JWT', function() {
-  console.log(splits);
   var jwt=''
     it('get a jwt token', function(done) {
 
