@@ -11,8 +11,8 @@ getTestData(org,env,sample,function(data){
   //i don have any data for this proxy
 })
 
-var create_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/create-hs256'
-var verify_url = 'https://' + org + '-' + env + '.apigee.net/jwt_signed/validate-hs256'
+var create_url = 'https://' + org + '-' + env + '.e2e.apigee.net/jwt_signed/create-hs256'
+var verify_url = 'https://' + org + '-' + env + '.e2e.apigee.net/jwt_signed/validate-hs256'
 
 describe('Running tests for JWT', function() {
   var jwt=''
