@@ -1,10 +1,11 @@
 var assert = chai.assert;
 var pathname = window.location.pathname
 var splits = pathname.split('/')
+console.log(pathname);
 //expected /o/:orgname/e/:env/s/:sample/test.html
-var org = splits[4]
-var env = splits[6]
-var sample = splits[8]
+var org = splits[3]
+var env = splits[5]
+var sample = splits[7]
 console.log(splits);
 
 getTestData(org,env,sample,function(data){
